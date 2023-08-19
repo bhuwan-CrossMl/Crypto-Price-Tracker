@@ -1,7 +1,8 @@
 import { Container, makeStyles, Typography } from "@material-ui/core";
 import Carousel from "./Carousel";
 
-const useStyles = makeStyles((theme) => ({
+
+const useStyles = makeStyles((theme) => ({  //styled componant
   banner: {
     backgroundImage: "url(./banner2.jpg)",
   },
@@ -26,9 +27,9 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
+
 function Banner() {
   const classes = useStyles();
-
   return (
     <div className={classes.banner}>
       <Container className={classes.bannerContent}>

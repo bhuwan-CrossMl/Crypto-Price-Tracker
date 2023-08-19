@@ -25,6 +25,7 @@ export function numberWithCommas(x) {
   return x.toString().replace(/\B(?=(\d{3})+(?!\d))/g, ",");
 }
 
+
 export default function CoinsTable() {
   const [coins, setCoins] = useState([]);
   const [loading, setLoading] = useState(false);
@@ -65,14 +66,12 @@ export default function CoinsTable() {
     setLoading(true);
     const { data } = await axios.get(CoinList(currency));
     console.log(data);
-
     setCoins(data);
     setLoading(false);
   };
 
   useEffect(() => {
     fetchCoins();
-    // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [currency]);
 
   const handleSearch = () => {
@@ -163,7 +162,7 @@ export default function CoinsTable() {
                           </div>
                         </TableCell>
                         <TableCell align="right">
-                          {symbol}{" "}
+                          {symbol}
                           {numberWithCommas(row.current_price.toFixed(2))}
                         </TableCell>
                         <TableCell
@@ -177,7 +176,7 @@ export default function CoinsTable() {
                           {row.price_change_percentage_24h.toFixed(2)}%
                         </TableCell>
                         <TableCell align="right">
-                          {symbol}{" "}
+                          {symbol}
                           {numberWithCommas(
                             row.market_cap.toString().slice(0, -6)
                           )}
